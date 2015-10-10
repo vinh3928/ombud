@@ -1,0 +1,9 @@
+{
+  "firebase": "github-cards",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
