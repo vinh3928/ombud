@@ -1,0 +1,63 @@
+*, *:before, *:after {
+  box-sizing: border-box; }
+
+* {
+  outline: 1px solid green; }
+
+img {
+  margin-bottom: 10px;
+  height: 150px; }
+
+button {
+  width: 100%; }
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+
+.panel {
+  width: 400px;
+  margin: 40px auto;
+  border: solid 1px black;
+  padding: 20px; }
+
+.display-profile {
+  width: 150px;
+  display: inline-block;
+  text-align: center; }
+
+.display-info {
+  width: 180px;
+  padding-left: 20px;
+  display: inline-block;
+  vertical-align: top; }
+  .display-info h2 {
+    margin-top: 0; }
+
+.display-data p {
+  display: inline; }
+
+.padding {
+  padding: 20px; }
+
+.nopad {
+  padding: 0; }
+
+.Barchart .label {
+  font-size: 10px; }
+
+.Barchart .ylabels .tick line {
+  fill: none;
+  stroke: #222;
+  stroke-width: 1px;
+  shape-rendering: crispEdges; }
+
+.Barchart path.domain {
+  fill: none;
+  stroke: #222;
+  stroke-width: 1px;
+  shape-rendering: crispEdges; }
+
+.Barchart .bars rect.bar {
+  fill: #97E8A2; }

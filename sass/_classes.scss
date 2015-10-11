@@ -1,0 +1,36 @@
+.panel {
+  width: 400px;
+  margin: 40px auto;
+  border: solid 1px black;
+  padding: 20px;
+}
+
+.display-profile {
+  width: 150px ;
+  display: inline-block;
+  text-align: center;
+}
+
+.display-info {
+  width: 180px;
+  padding-left: 20px;
+  display: inline-block;
+  vertical-align: top;
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.display-data {
+  p {
+    display: inline;
+  }
+}
+
+.padding {
+  padding: 20px;
+}
+
+.nopad {
+  padding: 0;
+}
