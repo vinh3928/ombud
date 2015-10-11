@@ -1,81 +1,39 @@
 
-app.controller("HomeController", ["$http", "$scope", "$route", "Auth", "$location", "$firebaseArray", function($http, $scope, $route, Auth, $location, $firebaseArray) {
+app.controller("HomeController", ["$http", "$scope", "Auth", "GitHub", function ($http, $scope, Auth, GitHub) {
   var Jan = 29;
   $scope.message = "This is HomeController";
+  $scope.view = {};
+  $scope.repos = GitHub.repos;
+  $scope.events = GitHub.events;
+  $scope.followers = GitHub.followers;
+  $scope.loginGitHub = GitHub.loginGitHub;
   $scope.loginGitHub = function () {
     Auth.$onAuth(function(authData) {
       $scope.authData = authData;
+      GitHub.authData = authData;
       if (authData) {
-        getRepos();
-        getEvents();
-        $scope.followInfo = {};
-        $scope.view = {};
-        getFollowers();
+        GitHub.getRepos();
+        $scope.repos = GitHub.repos;
+        GitHub.getEvents();
+        $scope.events = GitHub.events;
+        GitHub.getFollowers();
+        $scope.followers = GitHub.followers;
       }
-      console.log(authData);
     });
     Auth.$authWithOAuthPopup("github").catch(function(error) {
         console.log(error);
-      });
+    });
   };
-  $scope.logoutGitHub = function () {
-    Auth.$unauth();
-    console.log("logout?");
-  };
-  $scope.getFollowerInfo = function (url, id) {
-    $http.get(url)
-      .success(function (followerInfo) {
-        $scope.followInfo[id] = followerInfo;
-        console.log($scope.followInfo[id]);
-      })
-      .error(function (error) {
-        console.log(error);
-      });
-  };
+  $scope.authData = GitHub.authData;
+  $scope.logoutGitHub = GitHub.logoutGitHub;
+  $scope.getFollowerInfo = GitHub.getFollowerInfo;
+  $scope.followInfo = GitHub.followInfo;
   $scope.falseOut = function(Event, boole) {
     $scope.view.showRepos = false;
     $scope.view.showFollower = false;
     $scope.view.showEvents = false;
     $scope.view[Event] = boole;
   };
-  function getRepos() {
-    $http.get($scope.authData.github.cachedUserProfile.repos_url + "?per_page=100")
-      .success(function (repos) {
-        $scope.repos = repos;
-      })
-      .error(function (error) {
-        console.log(error);
-      });
-  }
-  function getEvents() {
-    $http.get($scope.authData.github.cachedUserProfile.received_events_url + "?per_page=100")
-      .success(function (events) {
-        $scope.events = events;
-        getHistory();
-      })
-      .error(function (error) {
-        console.log(error);
-      });
-  }
-  function getFollowers() {
-    $http.get($scope.authData.github.cachedUserProfile.followers_url)
-      .success(function (followers) {
-        $scope.followers = followers;
-      })
-      .error(function (error) {
-        console.log(error);
-      });
-  }
-  function getHistory() {
-    $scope.history = [];
-    for (var i = 0; i < $scope.events.length; i ++) {
-      var time = moment($scope.events[i].created_at).format("YYYY.MM.DD");
-      date = new Date(time).getTime();
-      if ((Date.now() - date) < 604800000) {
-        $scope.history.push($scope.events[i].created_at);
-      }
-    }
-  }
   barchart.draw([
     { month : 'Jan', commits: 29 },
     { month : 'Feb', commits: 32 },
@@ -92,6 +50,7 @@ app.controller("HomeController", ["$http", "$scope", "$route", "Auth", "$locatio
   ]);
 }]);
 
-app.controller("ShowController", ["$http", "$scope", function($http, $scope) {
+app.controller("ShowController", ["$http", "$scope", "GitHub", function($http, $scope, GitHub) {
   $scope.message = "This is ShowController";
+  $scope.data = GitHub.authData;
 }]);
