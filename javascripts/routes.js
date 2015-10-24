@@ -7,8 +7,7 @@ app.config(["$routeProvider", function($routeProvider) {
     })
     .when("/show", {
       templateUrl: "partials/show.html",
-      controller: "ShowController"
+      controller: "ShowController",
     });
 }]);
-
 

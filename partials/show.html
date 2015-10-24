@@ -1,4 +1,28 @@
 
 <h2>{{message}}</h2>
-<button ng-click="addShow()"></button>
-<h1>{{data}}</h1>
+<button><a href="/#/">Profile</a></button>
+<button ng-click="addShow()">Add to Show</button>
+<button ng-click="update()">Update to Show</button>
+<h4 ng-repeat="err in error">{{err}}</h4>
+<div class="panel">
+  <div class="card" ng-repeat="data in githubCards">
+    <div class="display-profile">
+      <img ng-src="{{data.authData.github.cachedUserProfile.avatar_url}}" alt="" />
+      <p>{{data.authData.github.displayName}}</p>
+    </div>
+    <div class="display-info">
+      <h2 class="red" ng-show="data.authData.github.cachedUserProfile.hireable"><a href="{{data.authData.github.cachedUserProfile.html_url}}">For Hire</a></h2>
+      <h2 ng-hide="data.authData.github.cachedUserProfile.hireable"><a href="{{data.authData.github.cachedUserProfile.html_url}}">GitHub</a></h2>
+      <p>{{data.authData.github.cachedUserProfile.company}}</p>
+      <p>{{data.authData.github.cachedUserProfile.location}}</p>
+      <p>Followers: {{data.authData.github.cachedUserProfile.followers}}</p>
+      <p>Past 7 Days: {{data.history.length}} Events</p>
+    </div>
+    <div class="display-data">
+      <p ng-show="data.repos.length <= 100">{{data.repos.length}} Repos Created</p>
+      <p ng-show="data.repos.length > 100">100+ Repos Created</p>
+      <p>|</p>
+      <p>{{data.events.length}} Events Since {{data.events[data.events.length - 1].created_at | date}}</p>
+    </div>
+  </div>
+</div>

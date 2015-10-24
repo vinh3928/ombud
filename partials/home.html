@@ -12,10 +12,13 @@
   </div>
   <div class="display-info">
     <h2 class="red" ng-show="authData.github.cachedUserProfile.hireable"><a href="{{authData.github.cachedUserProfile.html_url}}">For Hire</a></h2>
+    <h2 ng-hide="authData.github.cachedUserProfile.hireable"><a href="{{authData.github.cachedUserProfile.html_url}}">GitHub</a></h2>
     <p>{{authData.github.cachedUserProfile.company}}</p>
     <p>{{authData.github.cachedUserProfile.location}}</p>
     <p>Followers: <a href="" ng-click="falseOut('showFollower', view.showFollower);view.showFollower = !view.showFollower">{{authData.github.cachedUserProfile.followers}}</a></p>
-    <p>Past 7 Days: {{history.length}} Events</p>
+    <p><a href="" ng-click="falseOut('showCommits', view.showCommits); view.showCommits = !view.showCommits; getCommits()">Commit History</a></p>
+    <p ng-show="history.length > 0 ">Past 7 Days: {{history.length}} Events</p>
+    <p ng-hide="history.length > 0 ">Past 7 Days: 0 Events</p>
   </div>
   <div class="display-data">
     <a href="" ng-show="repos.length <= 100" ng-click="falseOut('showRepos', view.showRepos); view.showRepos = !view.showRepos">{{repos.length}} Repos Created</a>
@@ -37,8 +40,14 @@
     <li class="list-group-item">{{event.created_at | date}}</li>
   </ul>
 </div>
-<div class="panel nopad">
-  <div id="chart">
+<div class="panel nopad" ng-show="view.showCommits" ng-show="authData">
+  <h4><a href="">Get Repo History</a></h4>
+  <div>
+    <h4>{{commits}}</h4>
+  </div>
+  <div class="panel nopad">
+    <div id="chart">
+    </div>
   </div>
 </div>
 <div class="panel padding" ng-show="view.showFollower" ng-show="authData">
