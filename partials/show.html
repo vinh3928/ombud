@@ -3,8 +3,8 @@
 <button ng-click="addShow()">Add to Show</button>
 <button ng-click="update()">Update to Show</button>
 <h4 ng-repeat="err in error">{{err}}</h4>
-<div class="panel">
-  <div class="card" ng-repeat="data in githubCards" ng-style="{'background-color': data.design.backColor, 'color': data.design.fontColor}">
+<div class="panel" ng-repeat="data in githubCards">
+  <div class="card" ng-style="{'background-color': data.design.backColor, 'color': data.design.fontColor}">
     <div class="display-profile">
       <img ng-src="{{data.authData.github.cachedUserProfile.avatar_url}}" alt="" />
       <p>{{data.authData.github.displayName}}</p>

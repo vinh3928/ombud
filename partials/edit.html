@@ -1,46 +1,52 @@
 <div class="panel backColorPanel">
   <h2>Background Color</h2>
-  <div ng-click="setBackColor('backColor1')" class="backColor" id="backColor1">
+  <div class="container" >
+    <div ng-click="setBackColor('backColor1')" class="backColor" id="backColor1">
+    </div>
+    <div ng-click="setBackColor('backColor2')" class="backColor" id="backColor2">
+    </div>
+    <div ng-click="setBackColor('backColor3')" class="backColor circle" id="backColor3">
+    </div>
   </div>
-  <div ng-click="setBackColor('backColor2')" class="backColor" id="backColor2">
-  </div>
-  <div ng-click="setBackColor('backColor3')" class="backColor circle" id="backColor3">
-  </div>
-  <div ng-click="setBackColor('backColor4')" class="backColor" id="backColor4">
-  </div>
-  <div ng-click="setBackColor('backColor5')" class="backColor" id="backColor5">
-  </div>
-  <div ng-click="setBackColor('backColor6')" class="backColor" id="backColor6">
+  <div class="container">
+    <div ng-click="setBackColor('backColor4')" class="backColor" id="backColor4">
+    </div>
+    <div ng-click="setBackColor('backColor5')" class="backColor" id="backColor5">
+    </div>
+    <div ng-click="setBackColor('backColor6')" class="backColor" id="backColor6">
+    </div>
   </div>
 </div>
 
 <div class="panel fontColorPanel">
   <h2>Font Color</h2>
-  <div ng-click="setFontColor('fontColor1')" class="fontColor" id="fontColor1">
-    Red
+  <div class="container">
+    <div ng-click="setFontColor('fontColor1')" class="fontColor" id="fontColor1">
+      Red
+    </div>
+    <div ng-click="setFontColor('fontColor2')" class="fontColor" id="fontColor2">
+      Blue
+    </div>
+    <div ng-click="setFontColor('fontColor3')" class="fontColor" id="fontColor3">
+      White
+    </div>
   </div>
-  <div ng-click="setFontColor('fontColor2')" class="fontColor" id="fontColor2">
-    Blue
-  </div>
-  <div ng-click="setFontColor('fontColor3')" class="fontColor" id="fontColor3">
-    White
-  </div>
-  <div ng-click="setFontColor('fontColor4')" class="fontColor" id="fontColor4">
-    Green
-  </div>
-  <div ng-click="setFontColor('fontColor5')" class="fontColor" id="fontColor5">
-    Orange
-  </div>
-  <div ng-click="setFontColor('fontColor6')" class="fontColor" id="fontColor6">
-    Black
+  <div class="container">
+    <div ng-click="setFontColor('fontColor4')" class="fontColor" id="fontColor4">
+      Green
+    </div>
+    <div ng-click="setFontColor('fontColor5')" class="fontColor" id="fontColor5">
+      Orange
+    </div>
+    <div ng-click="setFontColor('fontColor6')" class="fontColor" id="fontColor6">
+      Black
+    </div>
   </div>
 </div>
 
-<div class="panel">
+<div class="panel center">
   <a href="/#/show" ng-click="saveChanges()">Save Changes</a>
 </div>
-
-<h2>{{message}}</h2>
 <div class="panel" ng-show="authData" ng-style="{'background-color': design.backColor, 'color': design.fontColor}">
   <div class="display-profile">
     <img ng-src="{{authData.github.cachedUserProfile.avatar_url}}" alt="" />

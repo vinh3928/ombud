@@ -36,7 +36,8 @@
 }
 
 .card {
-  padding: 0 0 20px 0;
+  padding: 10px;
+  border: 1px solid black;
 }
 
 .backColor {
@@ -103,4 +104,13 @@
 
 #fontColor6 {
   color: black;
+}
+
+.container {
+  width: 340px;
+  margin: 0 auto;
+}
+
+.center {
+  text-align: center;
 }

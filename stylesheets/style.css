@@ -51,7 +51,8 @@ h2 {
   padding: 0; }
 
 .card {
-  padding: 0 0 20px 0; }
+  padding: 10px;
+  border: 1px solid black; }
 
 .backColor {
   width: 100px;
@@ -104,6 +105,13 @@ h2 {
 
 #fontColor6 {
   color: black; }
+
+.container {
+  width: 340px;
+  margin: 0 auto; }
+
+.center {
+  text-align: center; }
 
 .Barchart .label {
   font-size: 10px; }
