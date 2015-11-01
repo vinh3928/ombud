@@ -1,11 +1,10 @@
 
-<h2>{{message}}</h2>
 <button><a href="/#/">Profile</a></button>
 <button ng-click="addShow()">Add to Show</button>
 <button ng-click="update()">Update to Show</button>
 <h4 ng-repeat="err in error">{{err}}</h4>
 <div class="panel">
-  <div class="card" ng-repeat="data in githubCards">
+  <div class="card" ng-repeat="data in githubCards" ng-style="{'background-color': data.design.backColor, 'color': data.design.fontColor}">
     <div class="display-profile">
       <img ng-src="{{data.authData.github.cachedUserProfile.avatar_url}}" alt="" />
       <p>{{data.authData.github.displayName}}</p>
@@ -17,6 +16,7 @@
       <p>{{data.authData.github.cachedUserProfile.location}}</p>
       <p>Followers: {{data.authData.github.cachedUserProfile.followers}}</p>
       <p>Past 7 Days: {{data.history.length}} Events</p>
+      <a href="/#/show/{{data.authData.github.id}}">Show More</a>
     </div>
     <div class="display-data">
       <p ng-show="data.repos.length <= 100">{{data.repos.length}} Repos Created</p>
@@ -24,5 +24,6 @@
       <p>|</p>
       <p>{{data.events.length}} Events Since {{data.events[data.events.length - 1].created_at | date}}</p>
     </div>
+    <script type="text/javascript" charset="utf-8" src="javascripts/chart.js"></script>
   </div>
 </div>

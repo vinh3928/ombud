@@ -1,9 +1,8 @@
-<button ng-show="GitHub.authData" ng-click="logoutGitHub()">Logout</button>
+<h2>{{message}}</h2>
+<button><a href="/#/">Profile</a></button>
 <button><a href="/#/show">All Cards</a></button>
-<div class="panel" ng-hide="authData">
-  <button ng-click="loginGitHub()">Login</button>
-</div>
-<div class="panel" ng-show="authData">
+<button><a href="/#/edit/{{authData.github.id}}">Edit Card</a></button>
+<div ng-style="{'background-color': design.backColor, 'color': design.fontColor}" class="panel" ng-show="authData">
   <div class="display-profile">
     <img ng-src="{{authData.github.cachedUserProfile.avatar_url}}" alt="" />
     <p>{{authData.github.displayName}}</p>
@@ -14,7 +13,7 @@
     <p>{{authData.github.cachedUserProfile.company}}</p>
     <p>{{authData.github.cachedUserProfile.location}}</p>
     <p>Followers: <a href="" ng-click="falseOut('showFollower', view.showFollower);view.showFollower = !view.showFollower">{{authData.github.cachedUserProfile.followers}}</a></p>
-    <p><a href="" ng-click="falseOut('showCommits', view.showCommits); view.showCommits = !view.showCommits; getCommits()">Commit History</a></p>
+    <p><a href="" ng-click="falseOut('showCommits', view.showCommits); view.showCommits = !view.showCommits; getReposCommits()">Commit History</a></p>
     <p ng-show="history.length > 0 ">Past 7 Days: {{history.length}} Events</p>
     <p ng-hide="history.length > 0 ">Past 7 Days: 0 Events</p>
   </div>
@@ -41,7 +40,6 @@
 <div class="panel nopad" ng-show="view.showCommits" ng-show="authData">
   <h4><a href="">Get Repo History</a></h4>
   <div>
-    <h4>{{commits}}</h4>
   </div>
   <div class="panel nopad">
     <div id="chart">

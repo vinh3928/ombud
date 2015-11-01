@@ -7,7 +7,15 @@ app.config(["$routeProvider", function($routeProvider) {
     })
     .when("/show", {
       templateUrl: "partials/show.html",
-      controller: "ShowController",
+      controller: "ShowController"
+    })
+    .when("/show/:id", {
+      templateUrl: "partials/showone.html",
+      controller: "ShowOneController"
+    })
+    .when("/edit/:id", {
+      templateUrl: "partials/edit.html",
+      controller: "EditController"
     });
 }]);
 

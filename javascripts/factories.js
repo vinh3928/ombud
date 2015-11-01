@@ -4,11 +4,14 @@ app.factory("Auth", ["$firebaseAuth", function($firebaseAuth) {
   return $firebaseAuth(ref);
 }]);
 
-app.factory("GitHub", ["$http","Auth", function($http, Auth) {
+app.factory("GitHub", ["$http", "$firebaseArray", "Auth", function($http, $firebaseArray, Auth) {
   var getData = {};
   getData.logoutGitHub = function () {
     Auth.$unauth();
   };
+
+  var ref = new Firebase("https://github-cards.firebaseio.com/");
+  getData.githubCards = $firebaseArray(ref);
 
   getData.followInfo = {};
   getData.getFollowerInfo = function (url, id) {

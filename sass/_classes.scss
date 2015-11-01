@@ -34,3 +34,73 @@
 .nopad {
   padding: 0;
 }
+
+.card {
+  padding: 0 0 20px 0;
+}
+
+.backColor {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#backColor1 {
+  background-color: red;
+}
+
+#backColor2 {
+  background-color: blue;
+}
+
+#backColor3 {
+  background-color: white;
+}
+
+#backColor4 {
+  background-color: green;
+}
+
+#backColor5 {
+  background-color: orange;
+}
+
+#backColor6 {
+  background-color: black;
+}
+
+.fontColor, .circle {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  text-align: center;
+  border: 1px solid black;
+  line-height: 100px;
+  white-space: nowrap;
+}
+
+#fontColor1 {
+  color: red;
+}
+
+#fontColor2 {
+  color: blue;
+}
+
+#fontColor3 {
+  color: black;
+}
+
+#fontColor4 {
+  color: green;
+}
+
+#fontColor5 {
+  color: orange;
+}
+
+#fontColor6 {
+  color: black;
+}
