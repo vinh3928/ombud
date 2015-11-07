@@ -8,20 +8,20 @@
     <p>{{authData.github.displayName}}</p>
   </div>
   <div class="display-info">
-    <h2 class="red" ng-show="authData.github.cachedUserProfile.hireable"><a href="{{authData.github.cachedUserProfile.html_url}}">For Hire</a></h2>
-    <h2 ng-hide="authData.github.cachedUserProfile.hireable"><a href="{{authData.github.cachedUserProfile.html_url}}">GitHub</a></h2>
+    <h2 class="red" ng-show="authData.github.cachedUserProfile.hireable"><a ng-class="design.aColor" href="{{authData.github.cachedUserProfile.html_url}}">For Hire</a></h2>
+    <h2 ng-hide="authData.github.cachedUserProfile.hireable"><a ng-class="design.aColor" href="{{authData.github.cachedUserProfile.html_url}}">GitHub</a></h2>
     <p>{{authData.github.cachedUserProfile.company}}</p>
     <p>{{authData.github.cachedUserProfile.location}}</p>
-    <p>Followers: <a href="" ng-click="falseOut('showFollower', view.showFollower);view.showFollower = !view.showFollower">{{authData.github.cachedUserProfile.followers}}</a></p>
-    <p><a href="" ng-click="falseOut('showCommits', view.showCommits); view.showCommits = !view.showCommits; getReposCommits()">Commit History</a></p>
+    <p>Followers: <a ng-class="design.aColor" href="" ng-click="falseOut('showFollower', view.showFollower);view.showFollower = !view.showFollower">{{authData.github.cachedUserProfile.followers}}</a></p>
+    <p><a ng-class="design.aColor" href="" ng-click="falseOut('showCommits', view.showCommits); view.showCommits = !view.showCommits; getReposCommits()">Commit History</a></p>
     <p ng-show="history.length > 0 ">Past 7 Days: {{history.length}} Events</p>
     <p ng-hide="history.length > 0 ">Past 7 Days: 0 Events</p>
   </div>
   <div class="display-data">
-    <a href="" ng-show="repos.length <= 100" ng-click="falseOut('showRepos', view.showRepos); view.showRepos = !view.showRepos">{{repos.length}} Repos Created</a>
-    <a href="" ng-show="repos.length > 100" ng-click="falseOut('showRepos', view.showRepos); showRepos = !showRepos">100+ Repos Created</a>
+    <a ng-class="design.aColor" href="" ng-show="repos.length <= 100" ng-click="falseOut('showRepos', view.showRepos); view.showRepos = !view.showRepos">{{repos.length}} Repos Created</a>
+    <a ng-class="design.aColor" href="" ng-show="repos.length > 100" ng-click="falseOut('showRepos', view.showRepos); showRepos = !showRepos">100+ Repos Created</a>
     <p>|</p>
-    <a href="" ng-click="falseOut('showEvents', view.showEvents); view.showEvents = !view.showEvents">{{events.length}} Events Since {{events[events.length - 1].created_at | date}}</a>
+    <a ng-class="design.aColor" href="" ng-click="falseOut('showEvents', view.showEvents); view.showEvents = !view.showEvents">{{events.length}} Events Since {{events[events.length - 1].created_at | date}}</a>
   </div>
 </div>
 <div class="panel" ng-show="view.showRepos" ng-show="authData">
@@ -38,7 +38,7 @@
   </ul>
 </div>
 <div class="panel nopad" ng-show="view.showCommits" ng-show="authData">
-  <h4><a href="">Repo History</a></h4>
+  <h4>Repo History</h4>
   <div>
   </div>
   <div class="panel nopad">

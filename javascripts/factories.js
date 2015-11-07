@@ -98,7 +98,7 @@ app.factory("GitHub", ["$http", "$firebaseArray", "Auth", function($http, $fireb
     { month : 'DEC', commits: 0 }
   ];
     for (var i = 0; i < getData.repos.length; i ++) {
-      $http.get("https://ombud-api.herokuapp.com/commits/" + getData.repos[i].name)
+      $http.get("https://ombud-api.herokuapp.com/commits/" + getData.repos[i].name + "/" + username)
         .success(function (commits) {
           getData.commits.push(commits);
          for (var j = 0; j < commits.data.length; j ++) {

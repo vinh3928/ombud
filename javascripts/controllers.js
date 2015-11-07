@@ -56,7 +56,8 @@ app.controller("ShowController", ["$http", "$scope", "GitHub", "$firebaseObject"
   };
   $scope.design = {
     backColor: 'white',
-    fontColor: 'black'
+    fontColor: 'black',
+    aColor: 'aColor2'
   };
   $scope.falseOut = function (Event, boole) {
     $scope.view.showCommits = false;
@@ -102,7 +103,12 @@ app.controller("ShowController", ["$http", "$scope", "GitHub", "$firebaseObject"
           $scope.githubCards[i].events = GitHub.events;
           $scope.githubCards[i].history = GitHub.history;
           $scope.githubCards[i].repos = GitHub.repos;
+          console.log("foobar");
+          GitHub.githubCards.$save(i).then(function() {
+            console.log("data saved to database");
+          });
         }
+
       }
     }
   };
@@ -213,11 +219,10 @@ app.controller("ShowOneController", ["$http", "$routeParams", "$scope", "GitHub"
     { month : 'NOV', commits: 0 },
     { month : 'DEC', commits: 0 }
   ];
-  console.log($scope.repos.length);
     for (var i = 0; i < $scope.repos.length; i ++) {
-      $http.get("https://ombud-api.herokuapp.com/commits/" + $scope.repos[i].name)
+      console.log(username);
+      $http.get("https://ombud-api.herokuapp.com/commits/" + $scope.repos[i].name + "/" + username)
         .success(function (commits) {
-          console.log(commits);
           $scope.commits.push(commits);
          for (var j = 0; j < commits.data.length; j ++) {
            if (commits.data[j].committer.login === username) {
@@ -264,6 +269,14 @@ app.controller("EditController", ["$http", "$routeParams", "$scope", "GitHub", "
     fontColor5: "orange",
     fontColor6: "black"
   };
+  $scope.aColor = {
+    aColor1: "red",
+    aColor2: "blue",
+    aColor3: "white",
+    aColor4: "green",
+    aColor5: "orange",
+    aColor6: "black"
+  };
   $scope.getEvents = function () {
     $http.get($scope.authData.github.cachedUserProfile.received_events_url + "?per_page=100")
       .success(function (events) {
@@ -281,6 +294,10 @@ app.controller("EditController", ["$http", "$routeParams", "$scope", "GitHub", "
       .error(function (error) {
         console.log(error);
       });
+  };
+  $scope.setAColor = function (aColor) {
+    $scope.design.aColor = aColor;
+    console.log($scope.design);
   };
   $scope.setBackColor = function (backColor) {
     var bColor = $scope.backColors[backColor];
@@ -301,6 +318,9 @@ app.controller("EditController", ["$http", "$routeParams", "$scope", "GitHub", "
         }
         if ($scope.design.fontColor) {
           GitHub.githubCards[i].design.fontColor = $scope.design.fontColor;
+        }
+        if ($scope.design.aColor) {
+          GitHub.githubCards[i].design.aColor = $scope.design.aColor;
         }
         GitHub.githubCards.$save(i).then(function() {
           console.log("data saved to database");

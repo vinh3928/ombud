@@ -10,13 +10,14 @@
       <p>{{data.authData.github.displayName}}</p>
     </div>
     <div class="display-info">
-      <h2 class="red" ng-show="data.authData.github.cachedUserProfile.hireable"><a href="{{data.authData.github.cachedUserProfile.html_url}}">For Hire</a></h2>
-      <h2 ng-hide="data.authData.github.cachedUserProfile.hireable"><a href="{{data.authData.github.cachedUserProfile.html_url}}">GitHub</a></h2>
+      <h2 class="red" ng-show="data.authData.github.cachedUserProfile.hireable"><a ng-class="data.design.aColor" href="{{data.authData.github.cachedUserProfile.html_url}}">For Hire</a></h2>
+      <h2 ng-hide="data.authData.github.cachedUserProfile.hireable"><a ng-class="data.design.aColor" href="{{data.authData.github.cachedUserProfile.html_url}}">GitHub</a></h2>
       <p>{{data.authData.github.cachedUserProfile.company}}</p>
       <p>{{data.authData.github.cachedUserProfile.location}}</p>
       <p>Followers: {{data.authData.github.cachedUserProfile.followers}}</p>
-      <p>Past 7 Days: {{data.history.length}} Events</p>
-      <a href="/#/show/{{data.authData.github.id}}">Show More</a>
+      <p ng-show="history.length > 0 ">Past 7 Days: {{data.history.length}} Events</p>
+      <p ng-hide="history.length > 0 ">Past 7 Days: 0 Events</p>
+      <a href="/#/show/{{data.authData.github.id}}" ng-class="data.design.aColor">Show More</a>
     </div>
     <div class="display-data">
       <p ng-show="data.repos.length <= 100">{{data.repos.length}} Repos Created</p>

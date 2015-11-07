@@ -71,7 +71,7 @@
   background-color: black;
 }
 
-.fontColor, .circle {
+.fontColor, .circle, .aColor {
   display: inline-block;
   width: 100px;
   height: 100px;
@@ -113,4 +113,28 @@
 
 .center {
   text-align: center;
+}
+
+.aColor1 {
+  color: red;
+}
+
+.aColor2 {
+  color: blue;
+}
+
+.aColor3 {
+  color: white;
+}
+
+.aColor4 {
+  color: green;
+}
+
+.aColor5 {
+  color: orange;
+}
+
+.aColor6 {
+  color: black;
 }
