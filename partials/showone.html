@@ -1,7 +1,7 @@
 <h2>{{message}}</h2>
-<button><a href="/#/">Profile</a></button>
-<button><a href="/#/show">All Cards</a></button>
-<button><a href="/#/edit/{{authData.github.id}}">Edit Card</a></button>
+<a href="/#/"><button>Profile</button></a>
+<a href="/#/show"><button>All Cards</button></a>
+<a href="/#/edit/{{authData.github.id}}"><button>Edit Card</button></a>
 <div ng-style="{'background-color': design.backColor, 'color': design.fontColor}" class="panel" ng-show="authData">
   <div class="display-profile">
     <img ng-src="{{authData.github.cachedUserProfile.avatar_url}}" alt="" />
@@ -38,7 +38,7 @@
   </ul>
 </div>
 <div class="panel nopad" ng-show="view.showCommits" ng-show="authData">
-  <h4>Repo History</h4>
+  <h4>Commit History</h4>
   <div>
   </div>
   <div class="panel nopad">

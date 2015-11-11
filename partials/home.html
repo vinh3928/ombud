@@ -1,5 +1,5 @@
 <button ng-show="GitHub.authData" ng-click="logoutGitHub()">Logout</button>
-<button><a href="/#/show">All Cards</a></button>
+<a href="/#/show"><button>All Cards</button></a>
 <div class="panel" ng-hide="authData">
   <button ng-click="loginGitHub()">Login</button>
 </div>
@@ -39,7 +39,7 @@
   </ul>
 </div>
 <div class="panel nopad" ng-show="view.showCommits" ng-show="authData">
-  <h4><a href="">Repo History</a></h4>
+  <h4><a href="">Commit History</a></h4>
   <div>
     <h4>{{commits}}</h4>
   </div>
